@@ -99,6 +99,9 @@ Additional_Build_Tools_s390x:
 Additional_Build_Tools_aarch64:
   - libpng-dev
 
+C_Library_32bit_Ubuntu_x86_64:
+  - gcc-multilib
+
 Test_Tool_Packages:
   - acl
   - mercurial

@@ -70,6 +70,11 @@ Additional_Build_Tools_CentOS7:
 Additional_Build_Tools_x86_64:
   - zulu-9
 
+C_Library_32bit_CentOS_x86_64:
+  - glibc.i686
+  - glibc-devel.i686
+  - libstdc++.i686
+
 Test_Tool_Packages:
   - mercurial
   - perl

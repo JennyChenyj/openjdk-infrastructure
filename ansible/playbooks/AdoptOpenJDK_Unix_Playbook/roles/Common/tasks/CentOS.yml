@@ -138,6 +138,16 @@
     - ansible_distribution_major_version == "6"
   tags: build_tools
 
+######################
+# 32-bit C Library #
+######################
+- name: Install 32-bit C Library for CentOS on x86_64
+  package: "name={{ item }} state=latest"
+  with_items: "{{ C_Library_32bit_CentOS_x86_64 }}"
+  when:
+    - ansible_architecture == "x86_64"
+  tags: libc32
+
 ##############################
 # expat on CentOS on x86_64 #
 ##############################

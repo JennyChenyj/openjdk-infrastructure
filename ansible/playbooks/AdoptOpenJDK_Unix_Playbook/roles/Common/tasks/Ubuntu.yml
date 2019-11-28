@@ -122,6 +122,16 @@
   when:
     - ansible_distribution_major_version == "18"
 
+######################
+# 32-bit C Library #
+######################
+- name: Install 32-bit C library for Ubuntu x86_64
+  package: "name={{ item }} state=latest"
+  with_items: "{{ C_Library_32bit_Ubuntu_x86_64 }}"
+  when:
+    - ansible_architecture == "x86_64"
+  tags: libc32
+
 ####################
 # Set default Java #
 ####################

@@ -110,6 +110,16 @@
     - ansible_distribution_major_version == "12"
   tags: test_tools
 
+####################
+# 32-bit C Library #
+####################
+- name: Install 32-bit C Library for SLES on x86_64
+  package: "name={{ item }} state=latest"
+  with_items: "{{ C_Library_32bit_SLES_x86_64 }}"
+  when:
+    - ansible_architecture == "x86_64"
+  tags: libc32
+
 ############################
 # Install Java 8 - SLES 11 #
 ############################

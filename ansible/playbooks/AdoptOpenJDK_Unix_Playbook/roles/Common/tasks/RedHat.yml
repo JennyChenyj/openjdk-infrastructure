@@ -58,12 +58,32 @@
     - (ansible_distribution_major_version != "7" and ansible_architecture != "s390x")
   tags: build_tools
 
-- name: Install additional build tools for RHEL on x86_64
+####################
+# 32-bit C Library #
+####################
+- name: Install 32-bit C library for RHEL on x86_64
   package: "name={{ item }} state=latest"
-  with_items: "{{ Additional_Build_Tools_RHEL_x86_64 }}"
+  with_items: "{{ C_Library_32bit_RHEL_x86_64 }}"
   when:
     - ansible_architecture == "x86_64"
-  tags: build_tools
+  tags: libc32
+
+- name: Install 32-bit C library for RHEL on ppc64
+  package: "name={{ item }} state=latest"
+  with_items: "{{ C_Library_32bit_RHEL_ppc64 }}"
+  when:
+    - ansible_architecture == "x86_64"
+  tags: libc32
+
+####################
+# 31-bit C Library #
+####################
+- name: Install 31-bit C library for RHEL on s390x
+  package: "name={{ item }} state=latest"
+  with_items: "{{ C_Library_31bit_RHEL_s390x }}"
+  when:
+    - ansible_architecture == "s390x"
+  tags: libc31
 
 #################
 # xorg Packages #
