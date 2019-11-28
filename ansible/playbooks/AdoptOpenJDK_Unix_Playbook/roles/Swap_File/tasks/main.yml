@@ -74,20 +74,20 @@
     - (swap_root.rc != 0 and swap_tmp.rc != 0)
   tags: swap_file
 
-- name: Mount swap file
-  command: "swapon {{ swap_path }}"
-  when:
-    - (swap_root.rc != 0 and swap_tmp.rc != 0)
-  tags: swap_file
+#- name: Mount swap file
+#  command: "swapon {{ swap_path }}"
+#  when:
+#    - (swap_root.rc != 0 and swap_tmp.rc != 0)
+#  tags: swap_file
 
-- name: Add swap to fstab
-  mount: src="{{ swap_path }}"
-    name=none
-    fstype=swap
-    opts=sw
-    passno=0
-    dump=0
-    state=present
-  when:
-    - (swap_root.rc != 0 and swap_tmp.rc != 0)
-  tags: swap_file
+#- name: Add swap to fstab
+#  mount: src="{{ swap_path }}"
+#    name=none
+#    fstype=swap
+#    opts=sw
+#    passno=0
+#    dump=0
+#    state=present
+#  when:
+#    - (swap_root.rc != 0 and swap_tmp.rc != 0)
+#  tags: swap_file
